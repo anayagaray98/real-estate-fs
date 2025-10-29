@@ -9,6 +9,12 @@ export interface ListProperty {
     image: string;
 };
 
+export interface PropertyImage {
+    idPropertyImage: string;
+    file: string;
+    enabled: boolean;
+}
+
 export interface DetailProperty {
     idProperty: string;
     idOwner: string;
@@ -17,6 +23,6 @@ export interface DetailProperty {
     price: number;
     year: number;
     codeInternal: string;
-    images: string[];
+    images: PropertyImage[];
     traces: string[];
 };

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import PropertyListPage from '@/modules/properties/pages/PropertyList';
 
-export async function generateMetadata({ params }: any): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: "Properties List",

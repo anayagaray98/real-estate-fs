@@ -31,6 +31,18 @@ builder.Services.AddSingleton<OwnerService>();
 // Add controllers
 builder.Services.AddControllers();
 
+
+// Add CORS policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowLocalhost", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000") // Frontend URL
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+    });
+});
+
 // Add Swagger (for .NET 8)
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -55,6 +67,9 @@ if (app.Environment.IsDevelopment())
         c.RoutePrefix = string.Empty; // makes Swagger UI the root
     });
 }
+
+// Use CORS before routing
+app.UseCors("AllowLocalhost");
 
 app.MapControllers();
 app.Run();
