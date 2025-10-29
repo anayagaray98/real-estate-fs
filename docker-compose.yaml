@@ -24,6 +24,8 @@ services:
     depends_on:
       - mongodb
     restart: always
+    volumes:
+      - ./backend:/src
 
 volumes:
   mongo-data:
