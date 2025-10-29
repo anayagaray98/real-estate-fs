@@ -1,0 +1,41 @@
+export default {
+  preset: "ts-jest",
+  extensionsToTreatAsEsm: [".ts", ".tsx"],
+  testEnvironment: "jsdom",
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
+  moduleNameMapper: {
+    "\\.(css|less|scss|sass)$": "identity-obj-proxy",
+    "\\.(jpg|jpeg|png|gif|svg)$": "<rootDir>/__mocks__/fileMock.js",
+    "^@/components/(.*)$": "<rootDir>/src/modules/components/$1",
+    "^@/pages/(.*)$": "<rootDir>/src/modules/pages/$1",
+    "^@/redux/(.*)$": "<rootDir>/src/redux/$1",
+  },
+  testMatch: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
+  transform: {
+    "^.+\\.(ts|tsx)$": [
+      "ts-jest",
+      {
+        useESM: true,
+        tsconfig: "<rootDir>/tsconfig.test.json",
+      },
+    ],
+  },
+  testPathIgnorePatterns: ["/node_modules/", "/.next/"],
+  collectCoverage: true,
+  collectCoverageFrom: [
+    "src/**/*.{ts,tsx}",
+    "!src/**/stories.{ts,tsx}",
+    "!src/**/types.{ts,tsx}",
+    "!src/**/interfaces.{ts,tsx}",
+    "!src/**/*.d.ts",
+    "!src/**/styles.ts",
+    "!src/**/config.ts",
+    "!src/**/index.{ts,tsx}",
+    "!src/**/mock.{ts,tsx}",
+    "!src/**/utils.ts",
+    "!src/**/hooks.ts",
+    "!**/node_modules/**",
+  ],
+  coverageDirectory: "coverage",
+  coverageReporters: ["text", "lconv"],
+};
