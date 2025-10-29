@@ -27,5 +27,20 @@ services:
     volumes:
       - ./backend:/src
 
+  realestate-frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: realestate-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    depends_on:
+      - realestate-api
+    volumes:
+      - ./frontend:/app
+    command: ["npm", "start"]
+    
 volumes:
   mongo-data:
