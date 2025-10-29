@@ -7,7 +7,8 @@ namespace RealEstateAPI.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; } = null!;
+        [BsonIgnoreIfDefault]
+        public string? Id { get; set; }
 
         [BsonElement("idOwner")]
         public string IdOwner { get; set; } = null!;

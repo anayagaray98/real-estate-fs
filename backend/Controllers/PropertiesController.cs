@@ -38,8 +38,17 @@ namespace RealEstateAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Property newProperty)
+        public async Task<IActionResult> Create(PropertyDto dto)
         {
+            var newProperty = new Property
+            {
+                IdOwner = dto.IdOwner,
+                Name = dto.Name,
+                Address = dto.Address,
+                Price = dto.Price,
+                ImageUrl = dto.ImageUrl
+            };
+
             await _propertyService.CreateAsync(newProperty);
             return CreatedAtAction(nameof(GetProperties), new { id = newProperty.Id }, newProperty);
         }
