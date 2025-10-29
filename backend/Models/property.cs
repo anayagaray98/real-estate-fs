@@ -8,10 +8,7 @@ namespace RealEstateAPI.Models
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         [BsonIgnoreIfDefault]
-        public string? Id { get; set; }
-
-        [BsonElement("idOwner")]
-        public string IdOwner { get; set; } = null!;
+        public string? IdProperty { get; set; }
 
         [BsonElement("name")]
         public string Name { get; set; } = null!;
@@ -22,7 +19,14 @@ namespace RealEstateAPI.Models
         [BsonElement("price")]
         public decimal Price { get; set; }
 
-        [BsonElement("imageUrl")]
-        public string ImageUrl { get; set; } = null!;
+        [BsonElement("codeInternal")]
+        public string CodeInternal { get; set; } = null!;
+
+        [BsonElement("year")]
+        public int Year { get; set; }
+
+        [BsonRepresentation(BsonType.ObjectId)]
+        [BsonElement("idOwner")] // Owner relationship
+        public string IdOwner { get; set; } = null!;
     }
 }

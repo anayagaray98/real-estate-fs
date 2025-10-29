@@ -1,15 +1,32 @@
 using RealEstateAPI.Services;
 using RealEstateAPI.Models;
+using MongoDB.Driver;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Configure MongoDB settings
 builder.Services.Configure<MongoDBSettings>(
-    builder.Configuration.GetSection("MongoDB"));
+    builder.Configuration.GetSection("MongoDBSettings"));
 
 // Register PropertyService
+builder.Services.AddSingleton<IMongoClient>(sp =>
+{
+    var settings = sp.GetRequiredService<IOptions<MongoDBSettings>>().Value;
+    return new MongoClient(settings.ConnectionString);
+});
+
+builder.Services.AddSingleton<IMongoDatabase>(sp =>
+{
+    var settings = sp.GetRequiredService<IOptions<MongoDBSettings>>().Value;
+    var client = sp.GetRequiredService<IMongoClient>();
+    return client.GetDatabase(settings.DatabaseName);
+});
+
+// Register services
 builder.Services.AddSingleton<PropertyService>();
+builder.Services.AddSingleton<OwnerService>();
 
 // Add controllers
 builder.Services.AddControllers();
