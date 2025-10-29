@@ -1,4 +1,6 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# ===============================
+# Node / Next.js
+# ===============================
 
 # dependencies
 /node_modules
@@ -8,7 +10,7 @@
 # testing
 /coverage
 
-# next.js
+# next.js build output
 /.next/
 /out/
 
@@ -19,7 +21,7 @@
 .DS_Store
 *.pem
 
-# debug
+# debug logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -34,3 +36,117 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# ===============================
+# .NET / ASP.NET Core
+# ===============================
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+
+# Rider / VS Code / Visual Studio
+.idea/
+.vscode/
+*.code-workspace
+*.vs/
+.vsconfig
+
+# Test results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# Backup and report files from crashes
+*.stackdump
+*.ncb
+*.aps
+*.sdf
+*.opendb
+*.VC.db
+*.VC.VC.opendb
+
+# NuGet packages
+*.nupkg
+*.snupkg
+# Restore folder
+**/packages/*
+
+!**/packages/build/
+!**/packages/repositories.config
+
+# MSBuild binary and cache
+*.obj
+*.exe
+*.pdb
+*.dll
+*.cache
+*.mdb
+
+# Publish output
+/publish/
+/wwwroot/dist/
+/wwwroot/node_modules/
+/wwwroot/.next/
+
+# ASP.NET Core specific
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.json.user
+/secrets.json
+
+# Entity Framework migrations (optional — comment out if you want to track them)
+/Migrations/
+
+# Dotnet CLI
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# ===============================
+# OS / Tooling specific
+# ===============================
+
+# macOS
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# JetBrains
+.idea/
+
+# ===============================
+# Custom
+# ===============================
+
+# Ignore backend environment files
+**/*.env
+/secrets/
+/keys/
