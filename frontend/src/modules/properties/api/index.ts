@@ -1,5 +1,5 @@
 import request from "@/shared/api/client";
-import { ListProperty, DetailProperty } from "../types/object.interfaces";
+import type { ListProperty, DetailProperty } from "../types/object.interfaces";
 
 
 export const apiGetProperties = (
