@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  realestate-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: realestate-api
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - MongoDB__ConnectionString=mongodb://mongo:27017
+      - MongoDB__DatabaseName=RealEstateDB
+      - MongoDB__PropertiesCollectionName=Properties
+    depends_on:
+      - mongodb
+    restart: always
+
+volumes:
+  mongo-data:

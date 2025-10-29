@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "dgSpecHash": "0de/0wr33nw=",
+  "success": false,
+  "projectFilePath": "C:\\Users\\Carlos Anaya\\Desktop\\real-estate-fs\\backend\\backend.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1100",
+      "level": "Error",
+      "message": "Unable to resolve 'Microsoft.AspNetCore.OpenApi (>= 9.0.10)' for 'net9.0'.",
+      "projectPath": "C:\\Users\\Carlos Anaya\\Desktop\\real-estate-fs\\backend\\backend.csproj",
+      "filePath": "C:\\Users\\Carlos Anaya\\Desktop\\real-estate-fs\\backend\\backend.csproj",
+      "libraryId": "Microsoft.AspNetCore.OpenApi",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    }
+  ]
+}
