@@ -42,9 +42,8 @@ COPY --from=builder /frontend/.next ./.next
 COPY --from=builder /frontend/node_modules ./node_modules
 COPY --from=builder /frontend/package.json ./package.json
 COPY --from=builder /frontend/public ./public
-COPY --from=builder /frontend/next.config.js ./next.config.js
-COPY --from=builder /frontend/jsconfig.json ./jsconfig.json 
-COPY --from=builder /frontend/next-i18next.config.js ./next-i18next.config.js
+COPY --from=builder /frontend/next.config.ts ./next.config.ts
+COPY --from=builder /frontend/tsconfig.json ./tsconfig.json 
 
 RUN chown -R nextjs:nextjs /frontend/.next /frontend/node_modules /frontend/public
 
