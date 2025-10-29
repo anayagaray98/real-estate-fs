@@ -40,6 +40,9 @@ namespace RealEstateAPI.Services
 
             return await _propertiesCollection.Find(finalFilter).ToListAsync();
         }
+
+        public async Task CreateAsync(Property newProperty) =>
+            await _propertiesCollection.InsertOneAsync(newProperty);
     }
 
     public class MongoDBSettings
