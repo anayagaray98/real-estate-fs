@@ -11,7 +11,7 @@ services:
 
   realestate-api:
     build:
-      context: .
+      context: ./backend
       dockerfile: Dockerfile
     container_name: realestate-api
     ports:
